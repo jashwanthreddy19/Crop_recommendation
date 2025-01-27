@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
+        <form action="/predict" method="POST">
+            <input type="number" step="any" name="n" placeholder="N (Nitrogen)" required>
+            <input type="number" step="any" name="p" placeholder="P (Phosphorus)" required>
+            <input type="number" step="any" name="k" placeholder="K (Potassium)" required>
+            <input type="number" step="any" name="ph" placeholder="pH Value" required>
+            <input type="number" step="any" name="ec" placeholder="Electrical Conductivity (EC)" required>
+            <input type="number" step="any" name="s" placeholder="Sulfur (S)" required>
+            <input type="number" step="any" name="cu" placeholder="Copper (Cu)" required>
+            <input type="number" step="any" name="fe" placeholder="Iron (Fe)" required>
+            <input type="number" step="any" name="mn" placeholder="Manganese (Mn)" required>
+            <input type="number" step="any" name="zn" placeholder="Zinc (Zn)" required>
+            <input type="number" step="any" name="b" placeholder="Boron (B)" required>
+            <input type="number" step="any" name="temperature" placeholder="Temperature (°C)" required>
+            <input type="number" step="any" name="humidity" placeholder="Humidity (%)" required>
+            <input type="number" step="any" name="rainfall" placeholder="Rainfall (mm)" required>
+            <input type="number" step="any" name="urea" placeholder="Urea (kg/ha)" required>
+            <input type="number" step="any" name="moisture" placeholder="Moisture (%)" required>
+            <button type="submit">Get Recommendation</button>
+        </form>
+        {% if prediction_text %}
+            <h2>{{ prediction_text }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
